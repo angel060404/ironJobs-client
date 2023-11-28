@@ -15,12 +15,11 @@ Currently, two official plugins are available:
 | `/offers`             | offers list              | YES       |
 | `/offers/details/:id` | details of offer         | YES       |
 | `/log-in`             | Login page               |           |
-| `/sign-up/company`    | Sign Up for Companies    |           |
-| `/sign-up/employe`    | Sign Up for employes     |           |
-| `/create-offer`       | New offer form page      | YES       |
-| `/user/profile`       | User profile page        | YES       |
+| `/sign-up/`           | Sign Up for Companies    |           |
+| `/offer/create`       | New offer form page      | YES       |
+| `/profile`            | User profile page        | YES       |
 | `/company/profile`    | Company profile page     | YES       |
-| `/offer/sign-up`      | Sign Up for a offer      | YES       |
-| `/offer/sign-up/list` | List of user who sign up | YES       |
+| `/company/create`     | Company create page      | YES       |
+| `/offer/userList`     | List of user who sign up | YES       |
 | `/users`              | List of Users            | YES       |
 
