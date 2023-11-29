@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap'
 import offersService from '../../services/offers.services'
+import OffersList from '../../components/OffersList/OffersList'
 
 const OffersPage = () => {
 
@@ -13,10 +14,7 @@ const OffersPage = () => {
     const loadOffers = () => {
         offersService
             .getOffers()
-            .then(({ data }) => {
-                console.log(data)
-                setOffers(data)
-            })
+            .then(({ data }) => setOffers(data))
             .catch(err => console.log(err))
     }
 
@@ -29,7 +27,7 @@ const OffersPage = () => {
                     !offers ?
                         <h2>cargando...</h2>
                         :
-                        offers.map(elm => console.log(elm))
+                        <OffersList offers={offers} />
                 }
             </Container>
         </div>
