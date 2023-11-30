@@ -1,0 +1,13 @@
+.profileInfo {
+    background-color: rgb(152, 152, 152);
+    padding-top: 40px;
+    border-radius: 5%;
+}
+
+
+
+.profileImg {
+    width: 100px;
+    margin-bottom: 25px;
+    margin-left: 20px;
+}

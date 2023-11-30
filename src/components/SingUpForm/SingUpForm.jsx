@@ -2,6 +2,7 @@ import { Col, Form, Row, Button } from 'react-bootstrap'
 import { useState } from 'react'
 import authService from '../../services/auth.services'
 import { useNavigate } from 'react-router-dom'
+
 const SignUpForm = () => {
 
     const [signUpData, setSignUpData] = useState({
