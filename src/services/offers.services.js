@@ -27,7 +27,9 @@ class OffersService {
         return this.api.get(`/getOneOffer/${Offer_id}`)
     }
 
-    // createOffer()
+    createOffer(Offer_body) {
+        return this.api.post(`/saveOffer`, Offer_body)
+    }
 }
 
 const offersService = new OffersService()

@@ -27,23 +27,18 @@ const CompaniesGallery = () => {
     return (
         <div className="CompaniesGallery mt-4">
             <Container>
-                <Row>
-                    <Col>
-                        <h1>HOLAAA SOY LA LISTA DE LAS COMPAÑIAS</h1>
-                        <Link to={`/company/create`} >create</Link>
-                        <hr />
-                        {
-                            companies ?
+                <h1>HOLAAA SOY LA LISTA DE LAS COMPAÑIAS</h1>
+                <Link to={`/company/create`} >create</Link>
+                <hr />
+                {
+                    companies ?
 
-                                <CompaniesList companies={companies} />
+                        <CompaniesList companies={companies} />
 
-                                :
+                        :
 
-                                <Loader />
-                        }
-
-                    </Col>
-                </Row>
+                        <Loader />
+                }
             </Container>
         </div>
 

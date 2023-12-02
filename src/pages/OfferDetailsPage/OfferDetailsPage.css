@@ -1,4 +1,4 @@
-.profileInfo {
+.offerInfo {
     background-color: rgb(152, 152, 152);
     padding-top: 40px;
     border-radius: 60px;
@@ -12,8 +12,16 @@
 
 
 
-.profileImg {
-    width: 100px;
+.offerImg {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
     margin-bottom: 25px;
     margin-left: 20px;
+}
+
+.description {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

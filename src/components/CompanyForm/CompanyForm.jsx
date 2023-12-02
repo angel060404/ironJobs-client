@@ -17,17 +17,18 @@ const CompanyForm = () => {
     const navigate = useNavigate()
 
     const handleInputChange = e => {
+
         const { value, name } = e.currentTarget
         setCompanyData({ ...companyData, [name]: value })
     }
 
     const handleForSubmit = e => {
+
         e.preventDefault()
         companiesServices
             .createCompany(companyData)
-            .then(({ data }) => console.log(data))
+            .then(({ data }) => setCompanyData(data))
             .catch(err => {
-                console.log(err)
                 navigate('/companies')
             })
 

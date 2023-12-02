@@ -27,8 +27,8 @@ const ProfileInfo = () => {
 
 
         <div className="profileInfo">
-            <Container>
-                {!user ?
+            {
+                !user ?
                     <Loader />
                     :
                     <>
@@ -42,11 +42,10 @@ const ProfileInfo = () => {
                             </Col>
                         </Row>
                         <Row>
-                            <h4><p>Description:</p><p>Passionate about innovation and leadership. Committed entrepreneur striving to make a difference. Firm believer in the power of creativity and teamwork to drive meaningful change. A perpetual learner and challenger of norms.</p></h4>
+                            <h4><p>Description:</p><p>{user.description}</p></h4>
                         </Row>
                     </>
-                }
-            </Container>
+            }
         </div>
     )
 }

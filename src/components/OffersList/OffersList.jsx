@@ -1,21 +1,37 @@
-import { Button, Card } from "react-bootstrap"
-
+import { Button, Card, Col } from "react-bootstrap"
+import './OfferList.css'
+import { Link } from "react-router-dom"
 
 
 const OffersList = ({ offers }) => {
 
     return (
         offers.map(elm =>
-            <Card key={elm._id} style={{ width: '18rem' }}>
-                <Card.Img variant={elm.title} src={elm.imageUrl} />
-                <Card.Body>
-                    <Card.Title><h2>{elm.title}</h2></Card.Title>
-                    <Card.Subtitle><h3>{elm.type}</h3></Card.Subtitle>
-                    <Card.Text>{elm.description}</Card.Text>
-                    <Card.Text>salary: {elm.salary}</Card.Text>
-                    <Button variant="primary">Details</Button>
-                </Card.Body>
-            </Card>
+            <Col md={{ span: 4 }}>
+                <Card key={elm._id} style={{ width: '22rem', height: '650px', backgroundColor: 'rgb(208 208 208' }}>
+                    <div style={{ height: '400px' }}>
+                        <Card.Img className="cardImg" variant={elm.title} src={elm.imageUrl} />
+                        <Card.Body>
+                            <Card.Title style={{ height: '50px' }}><h3>{elm.title}</h3></Card.Title>
+                            <hr />
+                            <Card.Subtitle style={{ height: '30px' }}><h3>{elm.type}</h3></Card.Subtitle>
+                            <hr />
+                            <Card.Text style={{ height: '100px' }}>{elm.description}</Card.Text>
+                            <hr />
+                            <Card.Text>salary: {elm.salary}</Card.Text>
+                            <hr />
+
+                            <Link className='link' to={`/offer/details/${elm._id}`}>
+                                <div className="d-grid gap-2">
+                                    <Button variant="dark">
+                                        Details
+                                    </Button>
+                                </div>
+                            </Link>
+                        </Card.Body>
+                    </div>
+                </Card>
+            </Col >
         )
     )
 }

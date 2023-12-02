@@ -11,7 +11,7 @@ const Navigation = () => {
 
     return (
         <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg='dark' data-bs-theme='dark'>
-            <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+            <Navbar.Brand className='brand' href="#home">React-Bootstrap</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
@@ -37,7 +37,7 @@ const Navigation = () => {
                                     </button>
                                 </span>
                             </NavDropdown>
-                            <img src={loggedUser.avatar} alt="" className='profileImgNav' />
+                            <img src={loggedUser.avatar} alt={loggedUser.name} className='profileImgNav' />
                         </>
                         :
                         <>
