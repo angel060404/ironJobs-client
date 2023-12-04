@@ -30,7 +30,7 @@ const OffersPage = () => {
 
     return (
         <div className="OffersPage">
-            <Container>
+            <Container className='mt-3'>
                 <OfferModalForm onhide={handleClose} show={showModal} loadOffers={loadOffers} setShowModal={setShowModal} />
                 <h1>Offers List</h1>
                 {

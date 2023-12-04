@@ -22,6 +22,9 @@ const CompaniesGallery = () => {
             .catch(err => console.log(err))
     }
 
+    const handleForDelete = () => {
+        loadCompanies()
+    }
 
 
     return (
@@ -33,7 +36,7 @@ const CompaniesGallery = () => {
                 {
                     companies ?
 
-                        <CompaniesList companies={companies} />
+                        <CompaniesList companies={companies} handleForDelete={loadCompanies} />
 
                         :
 

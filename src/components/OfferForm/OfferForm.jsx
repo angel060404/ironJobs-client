@@ -32,7 +32,6 @@ const OfferForm = ({ setShowModal, loadOffers }) => {
 
     }, [])
 
-    console.log(companies)
     let selectedCompanies = []
 
     companies && companies.map((elm) => {

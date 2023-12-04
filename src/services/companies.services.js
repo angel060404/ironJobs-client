@@ -30,6 +30,10 @@ class CompaniesService {
     createCompany(company_body) {
         return this.api.post('/createCompany', company_body)
     }
+
+    deleteCompany(company_id) {
+        return this.api.delete(`/deleteCompany/${company_id}`)
+    }
 }
 
 const companiesServices = new CompaniesService()

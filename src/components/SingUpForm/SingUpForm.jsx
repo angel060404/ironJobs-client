@@ -2,6 +2,7 @@ import { Col, Form, Row, Button } from 'react-bootstrap'
 import { useState } from 'react'
 import authService from '../../services/auth.services'
 import { useNavigate } from 'react-router-dom'
+import uploadServices from '../../services/upload.services'
 
 const SignUpForm = () => {
 
@@ -13,6 +14,8 @@ const SignUpForm = () => {
         description: '',
         name: ''
     })
+
+    const [imageLoading, setImageLoading] = useState(false)
 
     const ages = []
     for (let i = 18; i <= 90; i++) {
@@ -27,7 +30,9 @@ const SignUpForm = () => {
     }
 
     const handleForSubmit = e => {
+
         e.preventDefault()
+
         authService
             .signUp(signUpData)
             .then(createdUser => {
@@ -38,6 +43,24 @@ const SignUpForm = () => {
 
     }
 
+    const handleFileUpload = e => {
+
+        setImageLoading(true)
+
+        const formData = new FormData()
+        formData.append('imageData', e.target.files[0])
+
+        uploadServices
+            .uploadImage(formData)
+            .then(res => {
+                setSignUpData({ ...signUpData, avatar: res.data.cloudinary_url })
+                setImageLoading(false)
+            })
+            .catch(err => {
+                console.log(err)
+                setImageLoading(false)
+            })
+    }
 
     return (
         <Form onSubmit={handleForSubmit}>
@@ -71,17 +94,17 @@ const SignUpForm = () => {
             </Row>
 
 
-            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+            <Form.Group className="mb-3" controlId="avatar">
                 <Form.Label>Avatar:</Form.Label>
-                <Form.Control type="text" name='avatar' value={signUpData.avatar} placeholder=".jpg or .npg" onChange={handleInputChange} />
-            </Form.Group>
+                <Form.Control type="file" placeholder=".jpg or .npg" onChange={handleFileUpload} />            </Form.Group>
             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                 <Form.Label>Description:</Form.Label>
                 <Form.Control as="textarea" name='description' value={signUpData.description} rows={3} onChange={handleInputChange} />
             </Form.Group>
             <div className="d-grid gap-2">
-                <Button variant="dark" type="submit">Sign Up</Button>
+                <Button variant="dark" type="submit" disabled={imageLoading}>{imageLoading ? 'Loading Avatar...' : 'Sgn Up'}</Button>
             </div>
+
 
         </Form>
     )

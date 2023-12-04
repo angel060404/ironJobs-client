@@ -10,7 +10,8 @@ const Navigation = () => {
 
 
     return (
-        <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary" bg='dark' data-bs-theme='dark'>
+
+        <Navbar sticky='top' collapseOnSelect expand="lg" className="bg-body-tertiary navbar" bg='dark' data-bs-theme='dark'>
             <Navbar.Brand className='brand' href="#home">React-Bootstrap</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">

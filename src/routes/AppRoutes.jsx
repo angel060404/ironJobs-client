@@ -7,12 +7,13 @@ import LogInPage from '../pages/LogInPage/LogInPage'
 import ProfilePage from '../pages/ProfilePage/ProfilePage'
 import PrivateRoutes from './PrivateRoutes'
 import CreateCompanyPage from '../pages/CreateCompanyPage/CreateCompanyPage'
-import OfferDetailsRoutes from '../components/OfferDetailsRules/OfferDetailsRules'
 import OfferDetailsPage from '../pages/OfferDetailsPage/OfferDetailsPage'
+import CompanyDetailsPage from '../pages/CompanyDetailsPage/CompanyDetailsPage'
 
 const AppRoutes = () => {
     return (
         <Routes>
+
             <Route path={'/'} element={<HomePage />} />
             <Route path={'/companies'} element={<CompaniesGallery />} />
             <Route path={'/log-in'} element={<LogInPage />} />
@@ -20,14 +21,13 @@ const AppRoutes = () => {
 
             <Route element={<PrivateRoutes />}>
 
-
                 <Route path={'/profile'} element={<ProfilePage />} />
                 <Route path={'/offers'} element={<OffersPage />} />
-
+                <Route path={'company/details/:company_id'} element={<CompanyDetailsPage />} />
                 <Route path={'/offer/details/:offer_id'} element={<OfferDetailsPage />} />
                 <Route path={'/users'} element={<h1>aqui los usuarios</h1>} />
                 <Route path={'/company/create'} element={<CreateCompanyPage />} />
-                {/* <OfferDetailsRoutes /> */}
+
             </Route>
 
             <Route path={'*'} element={<h1>this page doesnt't exist :(</h1>} />
