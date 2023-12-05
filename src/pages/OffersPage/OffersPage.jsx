@@ -26,6 +26,10 @@ const OffersPage = () => {
             .catch(err => console.log(err))
     }
 
+    const handleForDelete = () => {
+        loadOffers()
+    }
+
     const { loggedUser } = useContext(AuthContext)
 
     return (
@@ -34,12 +38,12 @@ const OffersPage = () => {
                 <OfferModalForm onhide={handleClose} show={showModal} loadOffers={loadOffers} setShowModal={setShowModal} />
                 <h1>Offers List</h1>
                 {
-                    loggedUser.role === 'OWNER' && <Button variant="primary" onClick={handleShow}>Launch demo modal</Button>
+                    loggedUser.role === 'OWNER' && <Button variant="dark" onClick={handleShow}>Create an Offer</Button>
                 }
                 <hr />
                 <Row>
                     {
-                        !offers ? <h2>cargando...</h2> : <OffersList offers={offers} />
+                        !offers ? <h2>cargando...</h2> : <OffersList offers={offers} handleForDelete={handleForDelete} />
                     }</Row>
             </Container>
         </div>

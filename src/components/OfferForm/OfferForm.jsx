@@ -5,12 +5,14 @@ import offersService from "../../services/offers.services"
 import { Form, Button, Col, Row } from "react-bootstrap"
 import authService from "../../services/auth.services"
 import companiesServices from "../../services/companies.services"
-
+import FormErrors from "../FormErrors/FormErrors"
 
 const OfferForm = ({ setShowModal, loadOffers }) => {
 
     const { loggedUser } = useContext(AuthContext)
     const [companies, setCompanies] = useState()
+
+    const [errors, setErrors] = useState()
 
     const [offerData, setOfferData] = useState({
         title: '',
@@ -28,7 +30,7 @@ const OfferForm = ({ setShowModal, loadOffers }) => {
     })
 
     useEffect(() => {
-        loadCompanys()
+        loadCompanies()
 
     }, [])
 
@@ -41,7 +43,7 @@ const OfferForm = ({ setShowModal, loadOffers }) => {
     })
 
 
-    const loadCompanys = () => {
+    const loadCompanies = () => {
         authService
             .findById(loggedUser._id)
             .then(({ data }) => data.companies)
@@ -54,7 +56,7 @@ const OfferForm = ({ setShowModal, loadOffers }) => {
                 return Promise.all(selectedCompanies)
             })
             .then(result => setCompanies(result))
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
     }
 
     const navigate = useNavigate()
@@ -74,7 +76,10 @@ const OfferForm = ({ setShowModal, loadOffers }) => {
                 setShowModal(false)
                 loadOffers()
             })
-            .catch(err => navigate('/offers'))
+            .catch(err => {
+                setErrors(err.response.data.errorMessages)
+
+            })
     }
 
     return (
@@ -138,6 +143,9 @@ const OfferForm = ({ setShowModal, loadOffers }) => {
                 <Form.Label>Description:</Form.Label>
                 <Form.Control as="textarea" name='description' value={offerData.description} rows={3} onChange={handleInputChange} />
             </Form.Group>
+            <Form.Text id="passwordHelpBlock" muted>
+                {errors && errors.map(elm => <FormErrors children={elm} />)}
+            </Form.Text>
             <div className="d-grid gap-2">
                 <Button variant="dark" type="submit">Create Offer</Button>
             </div>

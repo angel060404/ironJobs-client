@@ -7,9 +7,9 @@ import { AuthProviderWrapper } from './contexts/auth.context'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <AuthProviderWrapper>
     <Router>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
+      {/* <React.StrictMode> */}
+      <App />
+      {/* </React.StrictMode> */}
     </Router>
   </AuthProviderWrapper>
 )

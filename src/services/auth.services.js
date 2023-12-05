@@ -36,6 +36,7 @@ class AuthService {
         return this.api.get(`/${userId}`)
     }
 
+
 }
 
 const authService = new AuthService()

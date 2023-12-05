@@ -3,6 +3,7 @@ import { useState } from 'react'
 import authService from '../../services/auth.services'
 import { useNavigate } from 'react-router-dom'
 import uploadServices from '../../services/upload.services'
+import FormErrors from "../FormErrors/FormErrors"
 
 const SignUpForm = () => {
 
@@ -14,6 +15,8 @@ const SignUpForm = () => {
         description: '',
         name: ''
     })
+
+    const [errors, setErrors] = useState()
 
     const [imageLoading, setImageLoading] = useState(false)
 
@@ -37,9 +40,9 @@ const SignUpForm = () => {
             .signUp(signUpData)
             .then(createdUser => {
                 console.log(createdUser)
-                navigate('/')
+                navigate('/log-in')
             })
-            .catch(err => console.log(err))
+            .catch(err => setErrors(err.response.data.errorMessages))
 
     }
 
@@ -101,8 +104,9 @@ const SignUpForm = () => {
                 <Form.Label>Description:</Form.Label>
                 <Form.Control as="textarea" name='description' value={signUpData.description} rows={3} onChange={handleInputChange} />
             </Form.Group>
+            {errors && errors.map(elm => <FormErrors children={elm} />)}
             <div className="d-grid gap-2">
-                <Button variant="dark" type="submit" disabled={imageLoading}>{imageLoading ? 'Loading Avatar...' : 'Sgn Up'}</Button>
+                <Button variant="dark" type="submit" disabled={imageLoading}>{imageLoading ? 'Loading Avatar...' : 'Sign Up'}</Button>
             </div>
 
 

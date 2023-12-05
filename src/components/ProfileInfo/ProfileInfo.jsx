@@ -1,31 +1,11 @@
-import { useContext, useEffect, useState } from "react"
-import { AuthContext } from "../../contexts/auth.context"
-import { Col, Container, Row, Image } from 'react-bootstrap'
+import { Col, Row, Image } from 'react-bootstrap'
 import './ProfileInfo.css'
-
-import authService from "../../services/auth.services"
 import Loader from "../Loader/Loader"
 
 
-const ProfileInfo = () => {
-
-    const { loggedUser } = useContext(AuthContext)
-    const [user, setUser] = useState()
-
-    const findUser = () => {
-
-        authService
-            .findById(loggedUser._id)
-            .then(({ data }) => setUser(data))
-            .catch(err => console.log(err))
-    }
-    useEffect(() => {
-        findUser()
-    }, [])
+const ProfileInfo = ({ user }) => {
 
     return (
-
-
         <div className="profileInfo">
             {
                 !user ?

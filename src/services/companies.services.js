@@ -34,6 +34,10 @@ class CompaniesService {
     deleteCompany(company_id) {
         return this.api.delete(`/deleteCompany/${company_id}`)
     }
+
+    editCompany(company_id, company_body) {
+        return this.api.put(`/updateCompany/${company_id}`, company_body)
+    }
 }
 
 const companiesServices = new CompaniesService()

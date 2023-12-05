@@ -1,11 +1,11 @@
 import OfferCard from "../OfferCard/OfferCard"
 
 
-const OffersList = ({ offers }) => {
+const OffersList = ({ offers, handleForDelete }) => {
 
     return (
         offers.map(elm =>
-            <OfferCard offer={elm} />
+            <OfferCard key={elm._id} offer={elm} handleForDelete={handleForDelete} />
         )
     )
 }

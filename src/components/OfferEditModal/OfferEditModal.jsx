@@ -1,8 +1,9 @@
 import { Modal } from "react-bootstrap";
-import OfferForm from "../OfferForm/OfferForm";
+import OfferEditForm from "../OfferEditForm/OfferEditForm";
 
 
-const OfferModalForm = ({ onhide, show, setShowModal, loadOffers }) => {
+
+const OfferEditModal = ({ onhide, show, setShowModal, loadOffer, offer }) => {
 
 
     return (
@@ -12,12 +13,11 @@ const OfferModalForm = ({ onhide, show, setShowModal, loadOffers }) => {
                     <Modal.Title>Modal heading</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <OfferForm setShowModal={setShowModal} loadOffers={loadOffers} />
+                    <OfferEditForm setShowModal={setShowModal} loadOffer={loadOffer} offer={offer} />
                 </Modal.Body>
             </Modal>
         </>
     );
 }
 
-export default OfferModalForm
-
+export default OfferEditModal
