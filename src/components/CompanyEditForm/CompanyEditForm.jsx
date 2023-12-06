@@ -4,7 +4,8 @@ import { Form, Button, Col, Row } from "react-bootstrap"
 import uploadServices from "../../services/upload.services"
 import FormErrors from "../FormErrors/FormErrors"
 
-const CompanyEditForm = ({ company, loadCompany, setShowModal }) => {
+const CompanyEditForm = ({ company }) => {
+
 
     const [editedCompany, setEditedCompany] = useState(company)
     const [errors, setErrors] = useState()

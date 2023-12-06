@@ -23,7 +23,7 @@ const AppRoutes = () => {
 
                 <Route path={'/profile'} element={<ProfilePage />} />
                 <Route path={'/offers'} element={<OffersPage />} />
-                <Route path={'company/details/:company_id'} element={<CompanyDetailsPage />} />
+                <Route path={'/company/details/:company_id'} element={<CompanyDetailsPage />} />
                 <Route path={'/offer/details/:offer_id'} element={<OfferDetailsPage />} />
                 <Route path={'/users'} element={<h1>aqui los usuarios</h1>} />
                 <Route path={'/company/create'} element={<CreateCompanyPage />} />

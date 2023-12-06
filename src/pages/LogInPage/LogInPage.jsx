@@ -1,10 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap"
 import LogInForm from "../../components/LogInForm/LogInForm"
+import './LogInPage.css'
 
 const LogInPage = () => {
 
     return (
-        <div className="LogInPage">
+        <div className="logInPage">
             <Container>
                 <Row>
                     <Col md={{ span: 6, offset: 3 }} className="mt-4">

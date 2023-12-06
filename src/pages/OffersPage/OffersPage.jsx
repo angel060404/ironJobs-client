@@ -4,6 +4,7 @@ import offersService from '../../services/offers.services'
 import OffersList from '../../components/OffersList/OffersList'
 import { AuthContext } from '../../contexts/auth.context'
 import OfferModalForm from '../../components/OfferModalForm/OfferModalForm'
+import Loader from '../../components/Loader/Loader'
 
 const OffersPage = () => {
 
@@ -14,6 +15,7 @@ const OffersPage = () => {
     const handleClose = () => setShowModal(false);
     const handleShow = () => setShowModal(true);
 
+    const { loggedUser } = useContext(AuthContext)
 
     useEffect(() => {
         loadOffers()
@@ -30,10 +32,9 @@ const OffersPage = () => {
         loadOffers()
     }
 
-    const { loggedUser } = useContext(AuthContext)
 
     return (
-        <div className="OffersPage">
+        <div className="OffersPage mb-4">
             <Container className='mt-3'>
                 <OfferModalForm onhide={handleClose} show={showModal} loadOffers={loadOffers} setShowModal={setShowModal} />
                 <h1>Offers List</h1>
@@ -43,7 +44,7 @@ const OffersPage = () => {
                 <hr />
                 <Row>
                     {
-                        !offers ? <h2>cargando...</h2> : <OffersList offers={offers} handleForDelete={handleForDelete} />
+                        !offers ? <Loader /> : <OffersList offers={offers} handleForDelete={handleForDelete} />
                     }</Row>
             </Container>
         </div>

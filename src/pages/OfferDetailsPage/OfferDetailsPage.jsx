@@ -25,7 +25,6 @@ const OfferDetailsPage = () => {
     useEffect(() => {
         loadOffer()
         loadUser()
-        console.log(offer)
     }, [])
 
     const loadUser = () => {
@@ -151,5 +150,5 @@ const OfferDetailsPage = () => {
         </div>
     )
 }
-//TODO MAPS Y APPLICANTS
+
 export default OfferDetailsPage

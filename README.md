@@ -9,17 +9,17 @@ Currently, two official plugins are available:
 
 ## ROUTES: 
 
-| URL                   | DESCRIPTION              | PROTECTED |
-|-----------------------|--------------------------|-----------|
-| `/`                   | index page               |           |
-| `/offers`             | offers list              | YES       |
-| `/offers/details/:id` | details of offer         | YES       |
-| `/log-in`             | Login page               |           |
-| `/sign-up/`           | Sign Up for Companies    |           |
-| `/offer/create`       | New offer form page      | YES       |
-| `/profile`            | User profile page        | YES       |
-| `/company/profile`    | Company profile page     | YES       |
-| `/company/create`     | Company create page      | YES       |
-| `/offer/userList`     | List of user who sign up | YES       |
-| `/users`              | List of Users            | YES       |
+| URL                               | DESCRIPTION              | PROTECTED |
+|-----------------------------------|--------------------------|-----------|
+| `/`                               | index page               |           |
+| `/Offers`                         | offers list              | YES       |
+| `/offers/details/:id`             | details of offer         | YES       |
+| `/log-in`                         | Login page               |           |
+| `/sign-up/`                       | Sign Up for Companies    |           |
+| `/profile`                        | User profile page        | YES       |
+| `/company/create`                 | Company create page      | YES       |
+| `/Companies`                      | Company profile page     |           |
+| `/company/details/:company_id`    | Company profile page     | YES       |
+
+
 

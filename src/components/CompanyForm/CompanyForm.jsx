@@ -25,17 +25,11 @@ const CompanyForm = () => {
     const navigate = useNavigate()
 
     const handleInputChange = e => {
-
         const { value, name } = e.currentTarget
         setCompanyData({ ...companyData, [name]: value })
     }
 
-
-
     const handleForSubmit = e => {
-
-
-
         e.preventDefault()
         companiesServices
             .createCompany(companyData)
@@ -69,7 +63,7 @@ const CompanyForm = () => {
     }
 
 
-    return (
+    return (<div className="mb-3">
         <Form onSubmit={handleForSubmit}>
 
             <Form.Group as={Col} controlId="formGridName">
@@ -113,6 +107,7 @@ const CompanyForm = () => {
             {errors && errors.map(elm => <FormErrors children={elm} />)}
 
         </Form>
+    </div>
     )
 
 }

@@ -7,10 +7,10 @@ const PrivateRoutes = () => {
 
     const { loggedUser, isLoading } = useContext(AuthContext)
 
+
     if (isLoading) {
         return <Loader />
     }
-
     if (!loggedUser) {
         return <Navigate to='/log-in' />
     }

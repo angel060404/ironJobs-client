@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from 'react'
 import companiesServices from '../../services/companies.services'
 import Loader from '../../components/Loader/Loader'
 import { AuthContext } from "../../contexts/auth.context"
-
+import './CompaniesPage.css'
 
 const CompaniesGallery = () => {
 
@@ -27,10 +27,12 @@ const CompaniesGallery = () => {
 
 
     return (
-        <div className="CompaniesGallery mt-4">
+        <div className="CompaniesGallery mt-4 mb-4">
             <Container>
-                <h1>HOLAAA SOY LA LISTA DE LAS COMPAÑIAS</h1>
-                {loggedUser && <Link to={`/company/create`} ><Button variant="dark">create</Button></Link>}
+                <div className="companiesHeader">
+                    <h1>Our Companies:</h1>
+                    {loggedUser && <Link to={`/company/create`} ><Button variant="dark">create</Button></Link>}
+                </div>
                 <hr />
                 {
                     companies ?

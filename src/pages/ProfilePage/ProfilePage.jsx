@@ -3,6 +3,7 @@ import ProfileInfo from "../../components/ProfileInfo/ProfileInfo"
 import authService from "../../services/auth.services"
 import { useContext, useEffect, useState } from "react"
 import { AuthContext } from "../../contexts/auth.context"
+import './ProfilePage.css'
 
 const ProfilePage = () => {
 
@@ -16,6 +17,7 @@ const ProfilePage = () => {
             .then(({ data }) => setUser(data))
             .catch(err => console.log(err))
     }
+
     useEffect(() => {
         findUser()
     }, [])

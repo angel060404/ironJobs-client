@@ -24,17 +24,15 @@ const CompanyDetails = ({ company, handleShow }) => {
                 </Col>
             </Row>
             <Container className='description'>
-                <Row>
-                    <h4><p className='description'>Description:</p><p className='description'>{company.description}</p></h4>
-                    <p className='description'><h5>email: <Link to='https://mail.google.com/mail/u/0/#inbox?compose=new'>{company.email}</Link></h5></p>
-                    <p>
-                        {(loggedUser?._id === company.owner.toString() || loggedUser?.role === 'ADMIN') &&
-                            <span className="gap-2 mt-3" style={{ marginLeft: '530px' }} onClick={handleShow}>
-                                <Button variant='info' >
-                                    Edit Offer
-                                </Button>
-                            </span>}</p>
-                </Row>
+                <h4><p className='description'>Description:</p><p className='description'>{company.description}</p></h4>
+                <p className='description'><h5>email: <Link to='https://mail.google.com/mail/u/0/#inbox?compose=new'>{company.email}</Link></h5></p>
+                <p>
+                    {(loggedUser?._id === company.owner.toString() || loggedUser?.role === 'ADMIN') &&
+                        <span className="gap-2 mt-3" style={{ marginLeft: '530px' }} onClick={handleShow}>
+                            <Button variant='info' >
+                                Edit Offer
+                            </Button>
+                        </span>}</p>
             </Container >
 
         </div >
