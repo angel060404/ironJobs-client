@@ -1,5 +1,4 @@
-import { Button, Card, Col } from "react-bootstrap"
-import './CompanyCard.css'
+import { Button, Card } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import companiesServices from "../../services/companies.services"
 import { AuthContext } from "../../contexts/auth.context"

@@ -1,9 +1,13 @@
+import { useContext } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/auth.context';
 
 const CompaniesCarrusel = ({ companies }) => {
-    console.log(companies)
+
+    const { loggedUser } = useContext(AuthContext)
+
     return (
         <Carousel >
             {companies?.map((company) => {
@@ -15,11 +19,11 @@ const CompaniesCarrusel = ({ companies }) => {
                                 <div className='carouselCaption'>
                                     <h4>{company.name}</h4>
                                     <p>{company.description}</p>
-                                    <Link className='link' to={`/company/details/${company._id}`}>
+                                    {loggedUser && <Link className='link' to={`/company/details/${company._id}`}>
                                         <div className="gap-2">
                                             <Button variant="dark">Details</Button>
                                         </div>
-                                    </Link>
+                                    </Link>}
                                 </div>
                             </Carousel.Caption>
                         </div>
