@@ -68,7 +68,7 @@ const CompanyForm = () => {
 
             <Form.Group as={Col} controlId="formGridName">
                 <Form.Label>Name of the company:</Form.Label>
-                <Form.Control type="text" value={companyData.name} name='name' onChange={handleInputChange} placeholder="Name and last name" />
+                <Form.Control type="text" value={companyData.name} name='name' onChange={handleInputChange} placeholder="Name of your company" />
             </Form.Group>
 
             <Row className="mb-3">

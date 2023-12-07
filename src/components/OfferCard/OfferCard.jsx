@@ -5,7 +5,7 @@ import { AuthContext } from "../../contexts/auth.context"
 import offersService from "../../services/offers.services"
 
 const OfferCard = ({ offer, handleForDelete }) => {
-    console.log(offer)
+
     const { loggedUser } = useContext(AuthContext)
 
     const deleteOneOffer = (offer_id) => {

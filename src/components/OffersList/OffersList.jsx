@@ -3,7 +3,7 @@ import OfferCard from "../OfferCard/OfferCard"
 
 
 const OffersList = ({ offers, handleForDelete }) => {
-    console.log(offers)
+
     return (<div className="mt-4">
         <Row>
             {offers.map((elm) => {
