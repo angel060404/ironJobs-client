@@ -4,21 +4,24 @@ import { Form, Button, Col, Row } from "react-bootstrap"
 import uploadServices from "../../services/upload.services"
 import FormErrors from "../FormErrors/FormErrors"
 
-const CompanyEditForm = ({ company }) => {
+const CompanyEditForm = ({ company, setShowModal, loadCompany }) => {
 
 
     const [editedCompany, setEditedCompany] = useState(company)
-    const [errors, setErrors] = useState()
     const [imageLoading, setImageLoading] = useState(false)
 
 
-    const handleForSubmit = () => {
-
+    const handleForSubmit = e => {
+        e.preventDefault()
         companiesServices
             .editCompany(company._id, editedCompany)
-            .then(response => console.log(response))
+            .then(() => {
+                loadCompany()
+                setShowModal(false)
+
+            })
             .catch(err => {
-                setErrors(err.response.data.errorMessages)
+                console.log(err)
             })
     }
 
@@ -38,7 +41,6 @@ const CompanyEditForm = ({ company }) => {
             .uploadImage(formData)
             .then(res => {
                 setEditedCompany({ ...editedCompany, image: res.data.cloudinary_url })
-                console.log(res.data.cloudinary_url)
                 setImageLoading(false)
             })
             .catch(err => {
@@ -89,7 +91,6 @@ const CompanyEditForm = ({ company }) => {
             <div className="d-grid gap-2">
                 <Button variant="dark" type="submit" disabled={imageLoading}>{imageLoading ? 'Loading Image...' : 'Edit Company'}</Button>
             </div>
-            {errors && errors.map(elm => <FormErrors children={elm} />)}
 
         </Form>
     )

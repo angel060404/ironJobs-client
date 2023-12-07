@@ -5,7 +5,6 @@ import { Container } from "react-bootstrap"
 import CompanyDetails from "../../components/CompanyDetails/CompanyDetails"
 import Loader from "../../components/Loader/Loader"
 import CompanyEditModal from "../../components/CompanyEditModal/CompanyEditModal"
-import './CompanyDetailsPage.css'
 
 const CompanyDetailsPage = () => {
 
@@ -27,17 +26,16 @@ const CompanyDetailsPage = () => {
 
     const [showModal, setShowModal] = useState(false)
 
-    const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
 
     return (
-        <div className="companyDetails">
+        <div className="companyDetails mt-2 pb-3">
             <Container>
                 {company ?
                     <>
                         <h1 className="">{company.name} Details</h1>
                         <hr />
-                        <CompanyEditModal onhide={handleClose} show={showModal} setShowModal={setShowModal} loadCompany={loadCompany} company={company} />
+                        <CompanyEditModal setShowModal={setShowModal} show={showModal} loadCompany={loadCompany} company={company} />
                         <CompanyDetails company={company} handleShow={handleShow} />
 
                     </>

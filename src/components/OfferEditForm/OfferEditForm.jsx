@@ -2,18 +2,20 @@ import { useState } from "react"
 import offersService from "../../services/offers.services"
 import { Form, Button, Col, Row } from "react-bootstrap"
 
-const OfferEditForm = ({ offer }) => {
+const OfferEditForm = ({ offer, setShowModal, loadOffer }) => {
 
     const [editedOffer, setEditedOffer] = useState(offer)
-    const [errors, setErrors] = useState()
 
-    const handleForSubmit = () => {
-
+    const handleForSubmit = e => {
+        e.preventDefault()
         offersService
             .editOffer(offer._id, editedOffer)
-            .then(response => console.log(response))
+            .then(() => {
+                setShowModal(false)
+                loadOffer()
+            })
             .catch(err => {
-                setErrors(err.response.data.errorMessages)
+                console.log(err)
             })
     }
 
@@ -77,7 +79,6 @@ const OfferEditForm = ({ offer }) => {
             <div className="d-grid gap-2">
                 <Button variant="dark" type="submit">Edit Offer</Button>
             </div>
-            {errors && errors.map(elm => <FormErrors children={elm} />)}
         </Form>
     )
 }

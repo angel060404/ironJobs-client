@@ -12,7 +12,7 @@ const CompaniesCarrusel = ({ companies }) => {
         <Carousel >
             {companies?.map((company) => {
                 return (
-                    <Carousel.Item key={company._id} className='carouselContent' interval={5000}>
+                    <Carousel.Item key={company._id} className='carouselContent' interval={2000}>
                         <div className='carouselContent'>
                             <Image className='carouselImg ' src={company.image} alt="" />
                             <Carousel.Caption>
@@ -34,20 +34,6 @@ const CompaniesCarrusel = ({ companies }) => {
             }
 
         </Carousel>
-        // <div className="carruselCompanies">
-        //     <Carousel>
-        //         {companies?.map((elm) => {
-        //             // console.log(elm)
-        //             <Carousel.Item>
-        //                 <Image src={elm.image} />
-        //                 <Carousel.Caption>
-        //                     <h4>{elm.name}</h4>
-        //                     <p>{elm.description}</p>
-        //                 
-        //             </Carousel.Item>
-        //         })}
-        //     </Carousel>
-        // </div>
     )
 }
 

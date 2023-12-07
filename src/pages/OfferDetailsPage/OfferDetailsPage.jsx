@@ -19,7 +19,6 @@ const OfferDetailsPage = () => {
     const { offer_id } = useParams()
     const { loggedUser } = useContext(AuthContext)
 
-    const handleClose = () => setShowModal(false)
     const handleShow = () => setShowModal(true)
 
     useEffect(() => {
@@ -63,16 +62,16 @@ const OfferDetailsPage = () => {
     }
 
     return (
-        <div className="OfferDetails">
+        <div className="OfferDetails mt-4">
             <Container>
-                <OfferEditModal onhide={handleClose} show={showModal} loadOffer={loadOffer} offer={offer} setShowModal={setShowModal} />
+                <OfferEditModal show={showModal} loadOffer={loadOffer} offer={offer} setShowModal={setShowModal} />
                 <Row>
                     {offer ?
                         <h1>Details of the offer: {offer.title}</h1> :
                         <Loader />}
                     <hr />
                 </Row>
-                <div className="offerInfo">
+                <div className="offerInfo mt-4">
                     {
                         !offer ?
                             <Loader />
@@ -82,42 +81,54 @@ const OfferDetailsPage = () => {
                                     <Col md={{ span: 4 }}>
                                         <Image src={offer.imageUrl} alt={offer.title} className="offerImg" thumbnail />
                                     </Col>
-                                    <Col>
+                                    <Col md={{ span: 5 }}>
                                         <h2>Occupation: {offer.occupation}</h2>
+                                        <hr />
                                         <h3>Duration: {offer.duration}</h3>
-                                    </Col>
-                                    <Col>
+                                        <hr />
                                         <h3>Type: {offer.type}</h3>
                                     </Col>
                                 </Row>
+                                <hr />
                                 <Container className='description'>
                                     <Row>
                                         <h4><p className='description'>Description:</p><p className='description'>{offer.description}</p></h4>
+                                        <hr />
                                         <h5> <p className='description'>Salary: {offer.salary}€</p></h5>
+
                                         <p>
                                             {(loggedUser?._id === offer.owner || loggedUser?.role === 'ADMIN') &&
-                                                <span className="d-grid gap-2 mt-3" onClick={handleShow}>
-                                                    <Button variant='info'>
-                                                        Edit Offer
-                                                    </Button>
-                                                </span>
+                                                <>
+                                                    <hr />
+                                                    <span className="d-grid gap-2 mt-3" onClick={handleShow}>
+                                                        <Button variant='info'>
+                                                            Edit Offer
+                                                        </Button>
+                                                    </span>
+                                                </>
                                             }
 
                                             {loggedUser?.role === 'USER' && (
                                                 <>
                                                     {!offer?.applicants.some(applicant => applicant._id === loggedUser?._id) && (
-                                                        <span className="d-grid gap-2 mt-3" onClick={subscribeUser}>
-                                                            <Button variant='info'>
-                                                                Suscribe to Offer
-                                                            </Button>
-                                                        </span>
+                                                        <>
+                                                            <hr />
+                                                            <span className="d-grid gap-2 mt-3" onClick={subscribeUser}>
+                                                                <Button variant='info'>
+                                                                    Suscribe to Offer
+                                                                </Button>
+                                                            </span>
+                                                        </>
                                                     )}
                                                     {offer?.applicants.some(applicant => applicant._id === loggedUser?._id) && (
-                                                        <span className="d-grid gap-2 mt-3" onClick={unSubscribeUser}>
-                                                            <Button variant='info'>
-                                                                Unsubscribe from the offer
-                                                            </Button>
-                                                        </span>
+                                                        <>
+                                                            <hr />
+                                                            <span className="d-grid gap-2 mt-3" onClick={unSubscribeUser}>
+                                                                <Button variant='info'>
+                                                                    Unsubscribe from the offer
+                                                                </Button>
+                                                            </span>
+                                                        </>
                                                     )}
                                                 </>
                                             )}</p>
@@ -128,14 +139,15 @@ const OfferDetailsPage = () => {
 
                                 </Container>
                                 <hr />
-                                <Container>
+                                {user && offer.applicants && offer.applicants.length > 0 &&
+                                    <Container>
 
-                                    <h4>Applicants:</h4>
-                                    <Row>
-                                        {user && offer.applicants && offer.applicants.length > 0 && offer.applicants.map((elm) => (
-                                            <OfferAplicants key={elm._id} applicant={elm} offer={offer} user={user} loadOffer={loadOffer} />
-                                        ))}</Row>
-                                </Container>
+                                        <h4>Applicants:</h4>
+                                        <Row>
+                                            {user && offer.applicants && offer.applicants.length > 0 && offer.applicants.map((elm) => (
+                                                <OfferAplicants key={elm._id} applicant={elm} offer={offer} user={user} loadOffer={loadOffer} />
+                                            ))}</Row>
+                                    </Container>}
 
 
                             </>}

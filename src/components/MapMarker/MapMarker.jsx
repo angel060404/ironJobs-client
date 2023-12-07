@@ -16,7 +16,7 @@ const MapMarker = ({ offer }) => {
         <>
             {offer && <div style={mapContainerStyle}>
                 <APIProvider apiKey={'AIzaSyAXrluxt6edH6GHzswvJd_nckU_vPeBjzc'}>
-                    <Map zoom={12} center={{ lat: 40.4169177926384, lng: -3.7036169094295338 }} style={mapStyle}>
+                    <Map zoom={6} center={{ lat: offer.location.coordinates[1], lng: offer.location.coordinates[0] }} style={mapStyle}>
                         {offer && <Marker
                             key={offer._id}
                             id={offer._id}

@@ -1,4 +1,4 @@
-import { Button, Card } from "react-bootstrap"
+import { Button, Card, Col, Container, Row } from "react-bootstrap"
 import { Link } from "react-router-dom"
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/auth.context"
@@ -20,37 +20,50 @@ const OfferCard = ({ offer, handleForDelete }) => {
         <Card style={{ marginTop: '30px' }} key={offer._id} className="card">
             <div style={{ height: '400px' }}>
                 <div className="CardImgCenter">
-                    <Card.Img className="CardImg" variant={offer.title} src={offer.imageUrl} />
+                    <Card.Img className="CardImg mt-3" variant={offer.title} src={offer.imageUrl} />
                 </div>
-                <Card.Body>
-                    <Card.Title style={{ height: '20px' }}><h3 style={{ fontSize: '1.3em' }}>{offer.title}</h3></Card.Title>
-                    <hr />
-                    <Card.Subtitle style={{ height: '20px' }}><h3 style={{ fontSize: '1.2em' }}>{offer.type}</h3></Card.Subtitle>
-                    <hr />
-                    <Card.Text style={{ height: '50px' }}>
-                        {offer.description}
-                    </Card.Text>
-                    <Card.Text style={{ height: '30px' }}>
-                        salary: {offer.salary}€
-                    </Card.Text>
-                    <hr />
-                    <Link className='link' to={`/offer/details/${offer._id}`}>
-                        <div className="d-grid gap-2">
-                            <Button variant="dark">
-                                Details
-                            </Button>
-                        </div>
-                    </Link>
-                    {(loggedUser?._id === offer.owner.toString() || loggedUser?.role === 'ADMIN') &&
-                        <span className="d-grid gap-2 mt-3" onClick={() => deleteOneOffer(offer._id)}>
-                            <Button className="btn-danger">
-                                Delete
-                            </Button>
-                        </span>
-                    }
-                </Card.Body>
+                <div className="carBody">
+                    <Card.Body>
+                        <Card.Title style={{ height: '20px' }}><h3 style={{ fontSize: '1.3em' }}>{offer.title}</h3></Card.Title>
+                        <hr />
+                        <Card.Subtitle style={{ height: '20px' }}><h3 style={{ fontSize: '1.2em' }}>{offer.type}</h3></Card.Subtitle>
+                        <hr />
+                        <Card.Text style={{ height: '60px' }}>
+                            {offer.description}
+                        </Card.Text>
+                        <hr />
+
+                        <Card.Text style={{ height: '30px' }}>
+                            <span style={{ fontSize: '1.2em', fontWeight: '500' }}>Salary:</span> {offer.salary}€
+                        </Card.Text>
+                        <hr />
+                        <Container>
+                            <Row>
+                                <Col>
+                                    <Link className='link' as={Col} to={`/offer/details/${offer._id}`}>
+                                        <div className="d-grid gap-2 mt-2">
+                                            <Button variant="dark">
+                                                Details
+                                            </Button>
+                                        </div>
+                                    </Link></Col>
+
+                                {(loggedUser?._id === offer.owner.toString() || loggedUser?.role === 'ADMIN') &&
+                                    <Col>
+                                        <span className="d-grid gap-2 mt-2" as={Col} onClick={() => deleteOneOffer(offer._id)}>
+                                            <Button className="btn-danger">
+                                                Delete
+                                            </Button>
+                                        </span>
+                                    </Col>
+                                }
+
+                            </Row>
+                        </Container>
+                    </Card.Body>
+                </div>
             </div>
-        </Card>
+        </Card >
     )
 }
 

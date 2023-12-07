@@ -44,8 +44,6 @@ class OffersService {
     }
 
     unSubscribeUser(offer_id, user_id) {
-        console.log('HOLLALALALALALALALALALALALAL', user_id)
-
         return this.api.put(`/unSubscribeUser/${offer_id}`, user_id)
     }
 }

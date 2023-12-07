@@ -40,7 +40,6 @@ const SignUpForm = () => {
         authService
             .signUp(signUpData)
             .then(createdUser => {
-                console.log(createdUser)
                 navigate('/log-in')
             })
             .catch(err => setErrors(err.response.data.errorMessages))
