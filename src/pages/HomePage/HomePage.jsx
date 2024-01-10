@@ -83,17 +83,6 @@ const HomePage = () => {
                         </Row>
                     </div>
                 </Container>
-                <div className="mt-4">
-                    <div className='imageText'>
-                        <Image className='imageHome' src='https://www.sopitas.com/wp-content/uploads/2014/05/gato-internet.jpg' />
-                        <div className="textCenter">
-                            <div className="homeCaption">
-                                <h4>Be like This cat and find a good job:</h4>
-                                <p>Look at him , he looks so concetrate on his work, his tongue is out, he looks like this emote :P, I'm so proud of him ,surely he's doing great. </p>
-                            </div>
-                        </div>
-                    </div></div>
-
             </div>
         </div>
     )
