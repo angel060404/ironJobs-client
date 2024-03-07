@@ -1,8 +1,9 @@
 footer {
-    background-color: #212429;
-    color: white;
-    text-align: center;
-    bottom: 0;
-    /* position: fixed; */
-    width: 100%;
+  background-color: #212429;
+  color: white;
+  text-align: center;
+  bottom: 0 !important;
+  position: absolute !important;
+  padding: auto;
+  width: 100%;
 }

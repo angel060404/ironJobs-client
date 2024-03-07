@@ -1,22 +1,20 @@
-import './App.css'
-import Footer from './Footer/Footer'
-import Navigation from './Navigation/Navigation'
-import AppRoutes from '../routes/AppRoutes'
+import "./App.css";
+import Footer from "./Footer/Footer";
+import Navigation from "./Navigation/Navigation";
+import AppRoutes from "../routes/AppRoutes";
 
 function App() {
-
-
   return (
     <div className="App">
+      <div className="appBody">
+        <Navigation />
 
-      <Navigation />
+        <AppRoutes />
 
-      <AppRoutes />
-
-      <Footer />
-
+        <Footer />
+      </div>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
