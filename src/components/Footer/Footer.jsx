@@ -1,5 +1,5 @@
-import './Footer.css'
+import "./Footer.css";
 
-const Footer = () => <footer>All rights reserved</footer>
+const Footer = () => <footer>&copy; All rights reserved</footer>;
 
-export default Footer
+export default Footer;
