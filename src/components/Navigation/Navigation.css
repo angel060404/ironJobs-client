@@ -1,15 +1,51 @@
+.custom-navbar {
+  background-color: #1a1a1a; /* Mejora el color de fondo */
+}
+
+.navbar .nav-link {
+  color: #fff; /* Cambia el color del texto a blanco */
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover {
+  color: #00b4d8; /* Agrega un color destacado en hover */
+}
+
 .navDropdown {
-    margin-right: 30px;
+  color: #fff;
+  margin-right: 20px;
+}
+
+.navDropdown .dropdown-item {
+  color: #c9c9c9;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navDropdown .dropdown-item:hover {
+  background-color: #00b4d8;
+  color: #fff;
 }
 
 .profileImgNav {
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 45px; /* Ajusta el tamaño de la imagen */
+  height: 45px;
+  border-radius: 50%;
+  margin-left: 10px;
+  object-fit: cover;
+  border: 2px solid #00b4d8; /* Añade un borde para destacar la imagen */
 }
 
 .brand {
-    margin-left: 20px;
+  font-size: 1.5rem; /* Aumenta el tamaño del logo */
+  color: #fff; /* Cambia el color del logo */
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+.navbar .brand:hover {
+  color: #00b4d8;
+}
+
+.brand:hover {
+  color: #00b4d8; /* Añade un efecto hover para el logo */
 }
