@@ -1,5 +1,36 @@
+.CompaniesGallery {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+}
+
 .companiesHeader {
-    display: flex;
-    align-items: center;
-    justify-content: space-between
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.companiesTitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.createButton {
+  background-color: #00b4d8;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.createButton:hover {
+  background-color: #0077b6;
+}
+
+.divider {
+  border: 1px solid #ddd;
+  margin-top: 10px;
 }

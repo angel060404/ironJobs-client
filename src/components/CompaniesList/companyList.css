@@ -1,0 +1,9 @@
+.CompaniesList {
+  margin-top: 20px;
+}
+
+.companyCol {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
