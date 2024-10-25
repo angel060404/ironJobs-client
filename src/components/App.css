@@ -12,6 +12,11 @@
   background-color: rgb(208 208 208) !important;
 }
 
+.CardContext {
+  width: 100%;
+  max-height: 400px;
+  text-overflow: none;
+}
 .CardImg {
   width: 30%;
   height: 150px !important;
