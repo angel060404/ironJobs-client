@@ -1,8 +1,9 @@
 import companiesServices from "../../services/companies.services";
 import { Container, Image, Row, Col, Button } from "react-bootstrap";
 import "./HomePage.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import CompaniesCarrusel from "../../components/CompaniesCarrusel/CompaniesCarrusel";
+import { AuthContext } from "../../contexts/auth.context";
 
 const HomePage = () => {
   const [companies, setCompanies] = useState();
@@ -11,6 +12,7 @@ const HomePage = () => {
     loadCompanies();
   }, []);
 
+  const { loggedUser } = useContext(AuthContext);
   const loadCompanies = () => {
     companiesServices
       .getCompanies()
@@ -35,9 +37,11 @@ const HomePage = () => {
             Discover top-notch job opportunities or post your own openings. Find
             the ideal job or the perfect candidate for your team on IronJobs!
           </p>
-          <Button variant="primary" className="ctaButton">
-            Get Started
-          </Button>
+          {!loggedUser && (
+            <Button variant="primary" className="ctaButton">
+              Get Started
+            </Button>
+          )}
         </div>
       </div>
 
